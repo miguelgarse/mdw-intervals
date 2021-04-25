@@ -143,7 +143,7 @@ public class IntervalTest {
     Point leftIntervalIntersected = new Point(-2.2);
     Point rightIntervalIntersected = new Point(4.4);
     Interval intervalIntersected = new IntervalBuilder().open(leftIntervalIntersected.getEquals()).open(rightIntervalIntersected.getEquals()).build();
-    assertFalse(interval.intersect(intervalIntersected));
+    assertTrue(interval.intersect(intervalIntersected));
   }
   @Test
   public void givenIntervaClosedClosedlWhenIntersectWithIntersectedIntervalClosedClosedFromBelowThenTrue() {
