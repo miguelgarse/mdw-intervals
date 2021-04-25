@@ -52,6 +52,6 @@ public class Interval {
 	}
 
     public boolean intersect(Interval interval) {
-        return true;
+        return false;
     }	
 }

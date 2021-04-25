@@ -71,6 +71,6 @@ public class IntervalTest {
     Point leftIntervalIntersected = new Point(0);
     Point rightIntervalIntersected = new Point(6.6);
     Interval intervalIntersected = new IntervalBuilder().open(leftIntervalIntersected.getEquals()).open(rightIntervalIntersected.getEquals()).build();
-   assertTrue(interval.intersect(intervalIntersected));
+    assertTrue(interval.intersect(intervalIntersected));
   }
 }
