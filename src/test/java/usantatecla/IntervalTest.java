@@ -65,5 +65,12 @@ public class IntervalTest {
     assertTrue(interval.include(right.getEquals()));
     assertFalse(interval.include(right.getGreater()));
   }
-
+  @Test
+  public void givenIntervaOpenOpenlWhenIntersectWithIntersectedIntervalOpenOpenThenTrue() {
+    Interval interval = this.intervalBuilder.open(left.getEquals()).open(right.getEquals()).build();
+    Point leftIntervalIntersected = new Point(0);
+    Point rightIntervalIntersected = new Point(6.6);
+    Interval intervalIntersected = new IntervalBuilder().open(leftIntervalIntersected.getEquals()).open(rightIntervalIntersected.getEquals()).build();
+   assertTrue(interval.intersect(intervalIntersected));
+  }
 }
