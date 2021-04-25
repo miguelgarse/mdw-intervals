@@ -130,11 +130,19 @@ public class IntervalTest {
     assertTrue(interval.intersect(intervalIntersected));
   }
   @Test
-  public void givenIntervaOpenOpenlWhenNotIntersectWithIntersectedIntervalClosedClosedFromAboveThenTrue() {
+  public void givenIntervaOpenOpenlWhenIntersectWithNotIntersectedIntervalClosedClosedFromAboveThenTrue() {
     Interval interval = this.intervalBuilder.open(left.getEquals()).open(right.getEquals()).build();
     Point leftIntervalIntersected = new Point(4.4);
     Point rightIntervalIntersected = new Point(8);
     Interval intervalIntersected = new IntervalBuilder().closed(leftIntervalIntersected.getEquals()).closed(rightIntervalIntersected.getEquals()).build();
+    assertFalse(interval.intersect(intervalIntersected));
+  }
+  @Test
+  public void givenIntervaOpenOpenlWhenIntersectWithSameIntervalOpenOpenThenTrue() {
+    Interval interval = this.intervalBuilder.open(left.getEquals()).open(right.getEquals()).build();
+    Point leftIntervalIntersected = new Point(-2.2);
+    Point rightIntervalIntersected = new Point(4.4);
+    Interval intervalIntersected = new IntervalBuilder().open(leftIntervalIntersected.getEquals()).open(rightIntervalIntersected.getEquals()).build();
     assertFalse(interval.intersect(intervalIntersected));
   }
 }
