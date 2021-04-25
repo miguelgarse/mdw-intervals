@@ -146,7 +146,7 @@ public class IntervalTest {
     assertFalse(interval.intersect(intervalIntersected));
   }
   @Test
-  public void givenIntervaClosedClosedlWhenIntersectWithIntersectedIntervalClsoedClosedFromBelowThenTrue() {
+  public void givenIntervaClosedClosedlWhenIntersectWithIntersectedIntervalClosedClosedFromBelowThenTrue() {
     Interval interval = this.intervalBuilder.closed(left.getEquals()).closed(right.getEquals()).build();
     Point leftIntervalIntersected = new Point(-6.6);
     Point rightIntervalIntersected = new Point(-2.2);
@@ -154,7 +154,7 @@ public class IntervalTest {
     assertTrue(interval.intersect(intervalIntersected));
   }
   @Test
-  public void givenIntervaClosedClosedlWhenIntersectWithNotIntersectedIntervalClsoedClosedFromBelowThenTrue() {
+  public void givenIntervaClosedClosedlWhenIntersectWithNotIntersectedIntervalClosedClosedFromBelowThenTrue() {
     Interval interval = this.intervalBuilder.closed(left.getGreater()).closed(right.getEquals()).build();
     Point leftIntervalIntersected = new Point(-6.6);
     Point rightIntervalIntersected = new Point(-2.2);
@@ -162,11 +162,19 @@ public class IntervalTest {
     assertFalse(interval.intersect(intervalIntersected));
   }
   @Test
-  public void givenIntervaClosedClosedlWhenIntersectWithIntersectedIntervalClsoedClosedFromAboveThenTrue() {
+  public void givenIntervaClosedClosedlWhenIntersectWithIntersectedIntervalClosedClosedFromAboveThenTrue() {
     Interval interval = this.intervalBuilder.closed(left.getEquals()).closed(right.getEquals()).build();
     Point leftIntervalIntersected = new Point(4.4);
     Point rightIntervalIntersected = new Point(8);
     Interval intervalIntersected = new IntervalBuilder().closed(leftIntervalIntersected.getEquals()).closed(rightIntervalIntersected.getEquals()).build();
     assertTrue(interval.intersect(intervalIntersected));
+  }
+  @Test
+  public void givenIntervaClosedClosedlWhenIntersectWithNotIntersectedIntervalClosedClosedFromAboveThenTrue() {
+    Interval interval = this.intervalBuilder.closed(left.getEquals()).closed(right.getLess()).build();
+    Point leftIntervalIntersected = new Point(4.4);
+    Point rightIntervalIntersected = new Point(8);
+    Interval intervalIntersected = new IntervalBuilder().closed(leftIntervalIntersected.getEquals()).closed(rightIntervalIntersected.getEquals()).build();
+    assertFalse(interval.intersect(intervalIntersected));
   }
 }
