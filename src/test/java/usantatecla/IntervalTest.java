@@ -90,7 +90,7 @@ public class IntervalTest {
     assertTrue(interval.intersect(intervalIntersected));
   }
   @Test
-  public void givenIntervaOpenOpenlWhenIntersectWithNotIntersectedIntervalOpenOpenFromBelowThenTrue() {
+  public void givenIntervaOpenOpenlWhenIntersectWithNotIntersectedIntervalOpenOpenFromBelowThenFalse() {
     Interval interval = this.intervalBuilder.open(left.getEquals()).open(right.getEquals()).build();
     Point leftIntervalIntersected = new Point(-6.6);
     Point rightIntervalIntersected = new Point(-4.4);
@@ -98,7 +98,7 @@ public class IntervalTest {
     assertFalse(interval.intersect(intervalIntersected));
   }
   @Test
-  public void givenIntervaOpenOpenlWhenIntersectWithNotIntersectedIntervalOpenOpenFromAboveThenTrue() {
+  public void givenIntervaOpenOpenlWhenIntersectWithNotIntersectedIntervalOpenOpenFromAboveThenFalse() {
     Interval interval = this.intervalBuilder.open(left.getEquals()).open(right.getEquals()).build();
     Point leftIntervalIntersected = new Point(6.6);
     Point rightIntervalIntersected = new Point(10);
@@ -114,7 +114,7 @@ public class IntervalTest {
     assertTrue(interval.intersect(intervalIntersected));
   }
   @Test
-  public void givenIntervaOpenOpenlWhenIntersectWithNotIntersectedIntervalClosedClosedFromBelowThenTrue() {
+  public void givenIntervaOpenOpenlWhenIntersectWithNotIntersectedIntervalClosedClosedFromBelowThenFalse() {
     Interval interval = this.intervalBuilder.open(left.getEquals()).open(right.getEquals()).build();
     Point leftIntervalIntersected = new Point(-6.6);
     Point rightIntervalIntersected = new Point(-2.2);
@@ -130,7 +130,7 @@ public class IntervalTest {
     assertTrue(interval.intersect(intervalIntersected));
   }
   @Test
-  public void givenIntervaOpenOpenlWhenIntersectWithNotIntersectedIntervalClosedClosedFromAboveThenTrue() {
+  public void givenIntervaOpenOpenlWhenIntersectWithNotIntersectedIntervalClosedClosedFromAboveThenFalse() {
     Interval interval = this.intervalBuilder.open(left.getEquals()).open(right.getEquals()).build();
     Point leftIntervalIntersected = new Point(4.4);
     Point rightIntervalIntersected = new Point(8);
@@ -162,7 +162,7 @@ public class IntervalTest {
     assertTrue(interval.intersect(intervalIntersected));
   }
   @Test
-  public void givenIntervaClosedClosedlWhenIntersectWithNotIntersectedIntervalClosedClosedFromBelowThenTrue() {
+  public void givenIntervaClosedClosedlWhenIntersectWithNotIntersectedIntervalClosedClosedFromBelowThenFalse() {
     Interval interval = this.intervalBuilder.closed(left.getGreater()).closed(right.getEquals()).build();
     Point leftIntervalIntersected = new Point(-6.6);
     Point rightIntervalIntersected = new Point(-2.2);
@@ -178,7 +178,7 @@ public class IntervalTest {
     assertTrue(interval.intersect(intervalIntersected));
   }
   @Test
-  public void givenIntervaClosedClosedlWhenIntersectWithNotIntersectedIntervalClosedClosedFromAboveThenTrue() {
+  public void givenIntervaClosedClosedlWhenIntersectWithNotIntersectedIntervalClosedClosedFromAboveThenFalse() {
     Interval interval = this.intervalBuilder.closed(left.getEquals()).closed(right.getLess()).build();
     Point leftIntervalIntersected = new Point(4.4);
     Point rightIntervalIntersected = new Point(8);
